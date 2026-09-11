@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  /* Slate Tones - Dark Mode Defaults (Base: Petroleum Ocean Dark Navy from reference image) */
+  --color-slate-950: #0a1826; /* Deep ocean dark background canvas */
+  --color-slate-900: #0f2738; /* Petroleum slate card background */
+  --color-slate-850: #143248; /* Secondary card / hover item */
+  --color-slate-800: #1d4865; /* Muted ocean border */
+  --color-slate-750: #25587b;
+  --color-slate-700: #2e688f;
+
+  /* Text Tones in Dark Mode */
+  --color-slate-100: #f0f7ff; /* Primary heading text */
+  --color-slate-200: #d5e6f5; /* Body text */
+  --color-slate-300: #a2c4de; /* Muted text */
+  --color-slate-400: #6f9abb; /* Secondary labels */
+  --color-slate-500: #4e7798;
+  --color-slate-600: #2e5879;
+  
+  --color-slate-150: #e1eef8;
+  --color-slate-250: #c2dcf0;
+  --color-slate-350: #93b9d8;
+  --color-slate-450: #648fad;
+  --color-slate-550: #426986;
+  
+  --color-slate-205: #d5e6f5;
+  --color-slate-305: #a2c4de;
+  --color-slate-405: #6f9abb;
+
+  /* Primary Brand Palette Defaults (Turquoise/Teal & Gold Amber from attached reference image) */
+  --color-indigo-600: #0e858b; /* Deep Cyan Turquoise */
+  --color-indigo-650: #09686e; /* Darker Ocean Teal */
+  --color-indigo-505: #1db1b0; /* Main Vibrant Cyan/Turquoise */
+  --color-indigo-555: #189c9b;
+  --color-indigo-400: #38d1d0; /* Bright Cyan Accent */
+  --color-indigo-300: #7ee2e1; /* Soft Bright Cyan */
+  --color-indigo-200: #b5f0ef;
+
+  /* Secondary Accent Palette (Gold/Yellow from attached reference image) */
+  --color-amber-400: #ffc107; /* Bright Gold Yellow */
+  --color-amber-405: #f5a623; /* Gold Amber */
+  --color-amber-500: #ffb703; /* Vibrant Yellow Accent */
+  --color-amber-600: #d97706; /* Dark Amber */
+  
+  --color-emerald-405: #2ec4b6;
+  --color-emerald-505: #10b981;
+  --color-violet-400: #38d1d0;
+  --color-violet-405: #1db1b0;
+  --color-violet-420: #0e858b;
+  --color-rose-500: #ef4444;
+}
+
+/* Light mode overrides ("Fundo Claro") mapping slate tones to crisp cool off-whites, ice cyan grays and high-contrast dark petroleum text */
+.light-theme {
+  --color-slate-950: #edf4f8; /* App Body light canvas (Clean Ice Gray/Blue) */
+  --color-slate-900: #ffffff; /* Card/Panel pure white */
+  --color-slate-850: #e3edf4; /* Secondary light panel/card background */
+  --color-slate-800: #cadce8; /* Border light mode (Cool Slate Cyan) */
+  --color-slate-750: #b3cadd; /* Divider light mode */
+  --color-slate-700: #9cb5cb;
+
+  --color-slate-100: #0a1f2e; /* Dark Ocean Petroleum (Primary text) */
+  --color-slate-200: #132f44; /* Body dark text */
+  --color-slate-300: #25465e; /* Secondary dark text */
+  --color-slate-400: #3c627d; /* Muted labels */
+  --color-slate-500: #557d9b; /* Sub-labels */
+  --color-slate-600: #88a9c3;
+  
+  /* Contrast solutions for custom text classes */
+  --color-slate-150: #132f44;
+  --color-slate-250: #25465e;
+  --color-slate-350: #3c627d;
+  --color-slate-450: #0a1f2e;
+  --color-slate-550: #132f44;
+  
+  --color-slate-205: #0a1f2e;
+  --color-slate-305: #132f44;
+  --color-slate-405: #25465e;
+
+  /* Vibrant Teal in Light Theme for Buttons and Accents */
+  --color-indigo-600: #0d8287;
+  --color-indigo-650: #09686d;
+  --color-indigo-505: #109b9f;
+  --color-indigo-555: #0d878b;
+  --color-indigo-400: #0f8185;
+  --color-indigo-300: #0b6b70;
+
+  /* Extra contrast fixes for light mode inputs and components */
+  input, textarea, select {
+    background-color: #f1f7fa !important;
+    color: #0a1f2e !important;
+    border-color: #cbdbe7 !important;
+  }
+  
+  select option {
+    background-color: #ffffff !important;
+    color: #0a1f2e !important;
+  }
+
+  /* Deeply improve contrast of light theme buttons with light texts */
+  button {
+    color: inherit;
+  }
+  
+  .text-slate-400 {
+    color: #3c627d !important;
+  }
+  .text-slate-300 {
+    color: #132f44 !important;
+  }
+  .text-slate-200 {
+    color: #0a1f2e !important;
+  }
+  
+  .hover\:text-white:hover {
+    color: #0a1f2e !important;
+  }
+  .hover\:text-slate-200:hover {
+    color: #0a1f2e !important;
+  }
+  .hover\:text-slate-100:hover {
+    color: #061622 !important;
+  }
+
+  .bg-slate-955, .bg-slate-950/20, .bg-slate-950/40, .bg-slate-950/60, .bg-slate-950/80 {
+    background-color: rgba(227, 237, 244, 0.6) !important;
+    border-color: #cadce8 !important;
+  }
+
+  .bg-slate-950 {
+    background-color: #e6f0f6 !important;
+  }
+
+  * {
+    border-color: var(--color-slate-800);
+  }
+}
+
+/* ==========================================================================
+   DYNAMIC COLOR THEMES
+   ========================================================================== */
+
+/* Theme 1: Ocean Teal & Gold (Turquesa & Ouro - Imagem de Referência) */
+.theme-ocean_teal {
+  --color-indigo-600: #0e858b;
+  --color-indigo-650: #09686e;
+  --color-indigo-505: #1db1b0;
+  --color-indigo-555: #189c9b;
+  --color-indigo-400: #38d1d0;
+  --color-indigo-300: #7ee2e1;
+  --color-amber-400: #ffc107;
+  --color-amber-500: #ffb703;
+}
+.theme-ocean_teal.light-theme {
+  --color-indigo-600: #0d8287;
+  --color-indigo-650: #09686d;
+  --color-indigo-505: #109b9f;
+  --color-indigo-400: #0f8185;
+}
+
+/* Theme 2: Classic Indigo (Corporate Blue) */
+.theme-classic_indigo {
+  --color-indigo-600: #4f46e5;
+  --color-indigo-650: #4338ca;
+  --color-indigo-505: #6366f1;
+  --color-indigo-555: #4f46e5;
+  --color-indigo-400: #818cf8;
+  --color-indigo-300: #a5b4fc;
+}
+.theme-classic_indigo.light-theme {
+  --color-indigo-600: #4338ca;
+  --color-indigo-650: #3730a3;
+  --color-indigo-505: #4f46e5;
+  --color-indigo-400: #4338ca;
+}
+
+/* Theme 3: Emerald Mint (Eco Growth / Sage & Mint) */
+.theme-emerald_mint {
+  --color-indigo-600: #059669;
+  --color-indigo-650: #047857;
+  --color-indigo-505: #10b981;
+  --color-indigo-555: #10b981;
+  --color-indigo-400: #34d399;
+  --color-indigo-300: #6ee7b7;
+}
+.theme-emerald_mint.light-theme {
+  --color-indigo-600: #047857;
+  --color-indigo-650: #064e3b;
+  --color-indigo-505: #059669;
+  --color-indigo-400: #047857;
+}
+
+/* Theme 4: Nordic Charcoal (Minimalist Swiss Slate) */
+.theme-nordic_charcoal {
+  --color-indigo-600: #374151;
+  --color-indigo-650: #1f2937;
+  --color-indigo-505: #4b5563;
+  --color-indigo-555: #4b5563;
+  --color-indigo-400: #9ca3af;
+  --color-indigo-300: #d1d5db;
+}
+.theme-nordic_charcoal.light-theme {
+  --color-indigo-600: #111827;
+  --color-indigo-650: #030712;
+  --color-indigo-505: #1f2937;
+  --color-indigo-400: #111827;
+}
+
+/* Theme 5: Sunset Copper (Warm Creative Agency / Amber-Rust) */
+.theme-sunset_copper {
+  --color-indigo-600: #ea580c;
+  --color-indigo-650: #c2410c;
+  --color-indigo-505: #f97316;
+  --color-indigo-555: #f97316;
+  --color-indigo-400: #fb923c;
+  --color-indigo-300: #fdba74;
+}
+.theme-sunset_copper.light-theme {
+  --color-indigo-600: #c2410c;
+  --color-indigo-650: #7c2d12;
+  --color-indigo-505: #ea580c;
+  --color-indigo-400: #c2410c;
+}
+
+/* Theme 6: Cosmic Dark (Aurora Purple) */
+.theme-cosmic_dark {
+  --color-indigo-600: #7c3aed;
+  --color-indigo-650: #6d28d9;
+  --color-indigo-505: #8b5cf6;
+  --color-indigo-555: #8b5cf6;
+  --color-indigo-400: #a78bfa;
+  --color-indigo-300: #c4b5fd;
+}
+.theme-cosmic_dark.light-theme {
+  --color-indigo-600: #6d28d9;
+  --color-indigo-650: #4c1d95;
+  --color-indigo-505: #7c3aed;
+  --color-indigo-400: #6d28d9;
+}
+
+/* Base custom interactive scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(111, 154, 187, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(111, 154, 187, 0.5);
+}
